@@ -6,6 +6,7 @@ export interface ListItemProps {
   subtext?: string;
   children?: ListItemProps[];
   icon?: React.ReactNode;
+  iconType?: "check" | "dot" | React.ReactNode;
 }
 
 export const ListItem: React.FC<ListItemProps> = ({
@@ -13,11 +14,29 @@ export const ListItem: React.FC<ListItemProps> = ({
   subtext,
   children,
   icon = <CheckIcon className="text-primary-500" size={20} />,
+  iconType = "check",
 }) => {
+  // Render icon based on type
+  const renderIcon = () => {
+    if (typeof iconType === "string") {
+      switch (iconType) {
+        case "check":
+          return <CheckIcon className="text-primary-500" size={20} />;
+        case "dot":
+          return (
+            <div className="w-3 h-3 border border-gray-300 rounded-full" />
+          );
+        default:
+          return icon;
+      }
+    }
+    return iconType;
+  };
+
   return (
     <div>
       <div className="flex items-center gap-3 p-2">
-        {icon}
+        {renderIcon()}
         <div>
           <span className="text-base text-gray-800">{text}</span>
           {subtext && (
@@ -51,6 +70,7 @@ export const PropertyTypesList: React.FC = () => {
   const propertyTypes = [
     {
       text: "Multi-Storied",
+      iconType: "dot",
       children: [
         { text: "Low rise Apartments", subtext: "(5 floors and less)" },
         { text: "Mid rise", subtext: "(6-10 floors)" },
