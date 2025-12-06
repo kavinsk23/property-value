@@ -1,70 +1,49 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
-export interface ButtonProps {
-  /** Button variant */
-  variant?: "primary" | "secondary" | "accent";
-  /** Button size */
-  size?: "small" | "medium" | "large";
-  /** Is the button disabled? */
-  disabled?: boolean;
-  /** Button contents */
-  label: string;
-  /** Optional click handler */
-  onClick?: () => void;
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: "default" | "outline";
+  size?: "sm" | "md" | "lg";
+  children: ReactNode;
+  iconRight?: React.ReactNode;
+  className?: string;
 }
 
-/** Simple Button component using our custom color palette */
-export const Button = ({
-  variant = "primary",
-  size = "medium",
-  disabled = false,
-  label,
-  onClick,
+export const Button: React.FC<ButtonProps> = ({
+  variant = "default",
+  size = "md",
+  children,
+  iconRight,
+  className = "",
   ...props
-}: ButtonProps) => {
-  // Define base classes
-  const baseClasses =
-    "font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2";
+}) => {
+  // Base styles
+  const baseStyles =
+    "inline-flex items-center justify-center gap-2 font-medium transition-all duration-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2";
 
-  // Define variant classes
-  const variantClasses = {
-    primary:
-      "bg-primary text-neutral-50 hover:bg-primary-dark focus:ring-primary",
-    secondary:
-      "bg-neutral-200 text-neutral-900 hover:bg-neutral-300 focus:ring-neutral-400",
-    accent:
-      "bg-primary-dark text-neutral-50 hover:bg-primary-light focus:ring-primary-light",
-  };
+  // Variant styles
+  const variantStyles =
+    variant === "default"
+      ? "bg-primary-50 text-white hover:bg-primary-500 hover:text-black active:bg-primary-600"
+      : "";
 
-  // Define size classes
-  const sizeClasses = {
-    small: "px-3 py-1.5 text-sm",
-    medium: "px-4 py-2.5 text-base",
-    large: "px-6 py-3 text-lg",
-  };
+  // Size styles
+  const sizeStyles =
+    size === "sm"
+      ? "px-2 py-2 text-sm"
+      : size === "md"
+      ? "px-4 py-2 text-base"
+      : size === "lg"
+      ? "px-6 py-3 text-md"
+      : "";
 
-  // Define disabled classes
-  const disabledClasses = disabled
-    ? "opacity-50 cursor-not-allowed"
-    : "cursor-pointer hover:shadow-md active:scale-[0.98]";
-
-  // Combine all classes
-  const buttonClasses = [
-    baseClasses,
-    variantClasses[variant],
-    sizeClasses[size],
-    disabledClasses,
-  ].join(" ");
+  // Combine all styles
+  const combinedStyles = `${baseStyles} ${variantStyles} ${sizeStyles} ${className} hover:text-black active:scale-[0.98]`;
 
   return (
-    <button
-      type="button"
-      className={buttonClasses}
-      disabled={disabled}
-      onClick={onClick}
-      {...props}
-    >
-      {label}
+    <button className={combinedStyles} {...props}>
+      {children}
+      {iconRight && <span className="ml-2">{iconRight}</span>}
     </button>
   );
 };

@@ -1,37 +1,30 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { ArrowRightIcon } from "lucide-react";
 import { Button } from "./Button";
 
 const meta: Meta<typeof Button> = {
-  title: "Atoms/Button",
+  title: "Components/Button",
   component: Button,
-  args: {
-    label: "Button",
+  tags: ["autodocs"],
+  argTypes: {
+    variant: {
+      control: { type: "select" },
+      options: ["default", "outline"],
+    },
+    size: {
+      control: { type: "select" },
+      options: ["sm", "md", "lg"],
+    },
   },
-} satisfies Meta<typeof Button>;
+};
 
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
-    variant: "primary",
-  },
-};
-
-export const Secondary: Story = {
-  args: {
-    variant: "secondary",
-  },
-};
-
-export const Large: Story = {
-  args: {
-    size: "large",
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    disabled: true,
+    children: "Explore Our Services",
+    variant: "default",
+    size: "md",
   },
 };

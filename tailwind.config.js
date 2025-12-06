@@ -10,7 +10,7 @@ export default {
         // Primary color variations
         primary: {
           DEFAULT: "#FA7315",
-          50: "#FFE5D6",
+          50: "#FF9E4C",
           100: "#FFD1AD",
           200: "#FFBC85",
           300: "#FFA65C",
