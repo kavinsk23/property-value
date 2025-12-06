@@ -40,6 +40,7 @@ export default {
         blue: "#1447e6",
         red: "#ca3500",
         purple: "#8200db",
+        grey: "#4a5565",
 
         bluebg: "#dbeafe",
         redbg: "#ffedd4",
