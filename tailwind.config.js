@@ -38,6 +38,14 @@ export default {
           200: "#0D0D0D",
         },
         success: "#16a34a",
+        gradient: {
+          start: "#FF9F1C",
+          end: "#FF6B35",
+        },
+        gradientAlt: {
+          start: "#FFA54C",
+          end: "#FF7D35",
+        },
       },
     },
   },
