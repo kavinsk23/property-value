@@ -37,7 +37,16 @@ export default {
           100: "#1A1A1A",
           200: "#0D0D0D",
         },
+        blue: "#1447e6",
+        red: "#ca3500",
+        purple: "#8200db",
+
+        bluebg: "#dbeafe",
+        redbg: "#ffedd4",
+        purplebg: "#f3e8ff",
+
         success: "#16a34a",
+
         gradient: {
           start: "#FF9F1C",
           end: "#FF6B35",
