@@ -37,6 +37,7 @@ export default {
           100: "#1A1A1A",
           200: "#0D0D0D",
         },
+        success: "#16a34a",
       },
     },
   },
