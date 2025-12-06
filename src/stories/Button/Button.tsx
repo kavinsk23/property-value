@@ -37,8 +37,16 @@ export const Button: React.FC<ButtonProps> = ({
       ? "px-6 py-3 text-md"
       : "";
 
+  // Inset 3D Shadow styles
+  const shadowStyles =
+    "shadow-[inset_0_2px_4px_rgba(0,0,0,0.1),inset_0_-2px_4px_rgba(255,255,255,0.1)]";
+
+  // Hover and Active state shadow variations
+  const activeShadowStyles =
+    "active:shadow-[inset_0_4px_8px_rgba(0,0,0,0.3),inset_0_-4px_8px_rgba(255,255,255,0.3)] active:scale-[0.98]";
+
   // Combine all styles
-  const combinedStyles = `${baseStyles} ${variantStyles} ${sizeStyles} ${className} hover:text-black active:scale-[0.98]`;
+  const combinedStyles = `${baseStyles} ${variantStyles} ${sizeStyles} ${shadowStyles} ${activeShadowStyles} ${className} hover:text-black transition-all duration-300`;
 
   return (
     <button className={combinedStyles} {...props}>
