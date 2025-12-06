@@ -1,6 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "./Button";
-import { HomeIcon, ChevronRightIcon, SettingsIcon } from "lucide-react";
+import {
+  HomeIcon,
+  ChevronRightIcon,
+  SettingsIcon,
+  ArrowRightIcon,
+} from "lucide-react";
 
 const meta: Meta<typeof Button> = {
   title: "Components/Button",
@@ -10,7 +15,7 @@ const meta: Meta<typeof Button> = {
   },
   argTypes: {
     variant: {
-      control: { type: "select", options: ["default", "outline"] },
+      control: { type: "select", options: ["default", "outline", "gradient"] },
       description: "Button variant style",
     },
     size: {
@@ -24,13 +29,20 @@ const meta: Meta<typeof Button> = {
     iconRight: {
       control: {
         type: "select",
-        options: [false, "HomeIcon", "ChevronRightIcon", "SettingsIcon"],
+        options: [
+          false,
+          "HomeIcon",
+          "ChevronRightIcon",
+          "SettingsIcon",
+          "ArrowRightIcon",
+        ],
       },
       mapping: {
         false: undefined,
         HomeIcon: <HomeIcon />,
         ChevronRightIcon: <ChevronRightIcon />,
         SettingsIcon: <SettingsIcon />,
+        ArrowRightIcon: <ArrowRightIcon />,
       },
       description: "Icon to display on the right side",
     },
@@ -58,6 +70,23 @@ export const Outline: Story = {
     ...Default.args,
     variant: "outline",
     children: "Outline Button",
+  },
+};
+
+export const Gradient: Story = {
+  args: {
+    children: "Gradient Button",
+    variant: "gradient",
+    size: "md",
+  },
+};
+
+export const GradientWithIcon: Story = {
+  args: {
+    children: "Start Your Valuation",
+    variant: "gradient",
+    size: "md",
+    iconRight: <ArrowRightIcon />,
   },
 };
 

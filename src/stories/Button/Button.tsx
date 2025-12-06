@@ -7,7 +7,7 @@ import React, {
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "default" | "outline";
+  variant?: "default" | "outline" | "gradient";
   size?: "sm" | "md" | "lg";
   children: ReactNode;
   iconRight?: React.ReactNode;
@@ -29,7 +29,9 @@ export const Button: React.FC<ButtonProps> = ({
   // Variant styles
   const variantStyles =
     variant === "default"
-      ? "bg-primary-500 text-white hover:bg-primary-600 active:bg-primary-700"
+      ? "bg-primary-50 text-white hover:bg-primary-400 active:bg-primary-400"
+      : variant === "gradient"
+      ? "bg-gradient-to-r from-[#FF6B35] to-[#FF9F1C] text-white hover:opacity-90 active:opacity-80 hover:scale-105 active:scale-100"
       : "border border-primary-500 text-primary-500 hover:bg-primary-50 active:bg-primary-100";
 
   // Size styles
@@ -51,7 +53,7 @@ export const Button: React.FC<ButtonProps> = ({
     "active:shadow-[inset_0_4px_8px_rgba(0,0,0,0.3),inset_0_-4px_8px_rgba(255,255,255,0.3)] active:scale-[0.98]";
 
   // Combine all styles
-  const combinedStyles = `${baseStyles} ${variantStyles} ${sizeStyles} ${shadowStyles} ${activeShadowStyles} ${className} hover:text-black transition-all duration-300`;
+  const combinedStyles = `${baseStyles} ${variantStyles} ${sizeStyles} ${shadowStyles} ${activeShadowStyles} ${className} transition-all duration-300`;
 
   // Safe icon rendering
   const renderIcon = (icon: React.ReactNode) => {
