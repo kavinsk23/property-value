@@ -31,7 +31,7 @@ export const Button: React.FC<ButtonProps> = ({
     variant === "default"
       ? "bg-primary-50 text-white hover:bg-primary-400 active:bg-primary-400"
       : variant === "gradient"
-      ? "bg-gradient-to-r from-[#FF6B35] to-[#FF9F1C] text-white hover:opacity-90 active:opacity-80 hover:scale-105 active:scale-100"
+      ? "bg-gradient-to-r from-gradient-start to-gradient-end text-white hover:opacity-90 active:opacity-80 hover:scale-105 active:scale-100"
       : "border border-primary-500 text-primary-500 hover:bg-primary-50 active:bg-primary-100";
 
   // Size styles
