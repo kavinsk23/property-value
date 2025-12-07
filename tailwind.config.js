@@ -21,6 +21,7 @@ export default {
           800: "#992F00",
           900: "#802000",
         },
+
         // Translucent orange variation
         "primary-translucent": "#ff8904cc",
 
@@ -41,6 +42,13 @@ export default {
         red: "#ca3500",
         purple: "#8200db",
         grey: "#4a5565",
+
+        headerblue: "#99ADFF",
+        headergreen: "#88C573",
+        headeryellow: "#FFDE5A",
+        headerorange: "#FC9F68",
+        headerteal: "#1CABB1",
+        headerpurple: "#CEA9F0",
 
         bluebg: "#dbeafe",
         redbg: "#ffedd4",
