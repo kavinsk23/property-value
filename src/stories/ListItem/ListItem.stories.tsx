@@ -61,41 +61,6 @@ export const CustomIcon: Story = {
   },
 };
 
-export const NestedList: Story = {
-  args: {
-    text: "Multi-Storied",
-    iconType: "check",
-    children: [
-      { text: "Low rise Apartments", subtext: "(5 floors and less)" },
-      { text: "Mid rise", subtext: "(6-10 floors)" },
-      { text: "High rise", subtext: "(10-40 floors)" },
-      { text: "Skyscraper", subtext: "(40+ floors)" },
-    ],
-  },
-};
-
 export const FullPropertyTypesList: Story = {
   render: () => <PropertyTypesList />,
-};
-
-export const ComplexNestedList: Story = {
-  args: {
-    text: "Property Types",
-    iconType: <HomeIcon className="text-primary-500" />,
-    children: [
-      {
-        text: "Multi-Storied",
-        iconType: <BarChartIcon className="text-gray-500" />,
-        children: [
-          { text: "Low rise Apartments", subtext: "(5 floors and less)" },
-          { text: "Mid rise", subtext: "(6-10 floors)" },
-        ],
-      },
-      {
-        text: "Single-Storied",
-        iconType: <BarChartIcon className="text-gray-500" />,
-        children: [{ text: "Standalone Houses" }, { text: "Bungalows" }],
-      },
-    ],
-  },
 };
