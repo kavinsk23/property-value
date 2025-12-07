@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ProgressItem, ProgressTimeline } from "./ProgressItem";
 
 const meta: Meta<typeof ProgressItem> = {
-  title: "Components/ProgressItem",
+  title: "Atoms/ProgressItem",
   component: ProgressItem,
   parameters: {
     layout: "centered",

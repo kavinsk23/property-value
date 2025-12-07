@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ReportHeader } from "./ReportHeader";
 
 const meta: Meta<typeof ReportHeader> = {
-  title: "Components/ReportHeader",
+  title: "Atoms/ReportHeader",
   component: ReportHeader,
   parameters: {
     layout: "centered",

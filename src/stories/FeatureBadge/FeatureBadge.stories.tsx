@@ -3,7 +3,7 @@ import { FeatureBadgeGroup, FeatureBadge } from "./FeatureBadge";
 import { UserCheckIcon } from "lucide-react";
 
 const meta: Meta<typeof FeatureBadgeGroup> = {
-  title: "Components/FeatureBadgeGroup",
+  title: "Atoms/FeatureBadgeGroup",
   component: FeatureBadgeGroup,
   parameters: {
     layout: "centered",

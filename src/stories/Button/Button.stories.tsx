@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 
 const meta: Meta<typeof Button> = {
-  title: "Components/Button",
+  title: "Atoms/Button",
   component: Button,
   parameters: {
     layout: "centered",

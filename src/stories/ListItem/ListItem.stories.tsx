@@ -3,7 +3,7 @@ import { ListItem, PropertyTypesList } from "./ListItem";
 import { CheckIcon, BuildingIcon, HomeIcon, BarChartIcon } from "lucide-react";
 
 const meta: Meta<typeof ListItem> = {
-  title: "Components/ListItem",
+  title: "Atoms/ListItem",
   component: ListItem,
   parameters: {
     layout: "centered",

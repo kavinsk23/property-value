@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Typewriter } from "./Typewriter";
 
 const meta: Meta<typeof Typewriter> = {
-  title: "Components/Typewriter",
+  title: "Atoms/Typewriter",
   component: Typewriter,
   parameters: {
     layout: "centered",
