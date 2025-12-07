@@ -123,15 +123,15 @@ export const ProgressTimeline: React.FC<{
 
   return (
     <div className={`space-y-10 ${className}`}>
-      {childrenArray.map((child, index) => (
-        <React.Fragment key={index}>
-          {React.isValidElement(child) &&
-            React.cloneElement(child, {
-              ...child.props,
-              showConnector: index < childrenArray.length - 1,
-            } as any)}
-        </React.Fragment>
-      ))}
+      {childrenArray.map((child, index) => {
+        if (React.isValidElement<ProgressItemProps>(child)) {
+          return React.cloneElement(child, {
+            ...child.props,
+            showConnector: index < childrenArray.length - 1,
+          });
+        }
+        return child;
+      })}
     </div>
   );
 };
