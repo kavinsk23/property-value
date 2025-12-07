@@ -12,7 +12,7 @@ const meta: Meta<typeof ProgressItem> = {
   argTypes: {
     status: {
       control: "select",
-      options: ["completed", "current", "upcoming"],
+      options: ["completed", "upcoming"],
     },
   },
 };
@@ -26,26 +26,18 @@ export const Completed: Story = {
     title: "Step 1: Choose Your Service",
     description: "Select Property Valuation from our services to get started.",
     status: "completed",
-  },
-};
-
-export const Current: Story = {
-  args: {
-    step: 2,
-    title: "Step 2: Place Your Order",
-    description:
-      "Complete your order securely through our online checkout in just a few clicks.",
-    status: "current",
+    showConnector: true,
   },
 };
 
 export const Upcoming: Story = {
   args: {
-    step: 3,
-    title: "Step 3: Submit Property Details",
+    step: 2,
+    title: "Step 2: Place Your Order",
     description:
-      "After order confirmation, enter your property information location, type, and key details for accurate valuation.",
+      "Complete your order securely through our online checkout in just a few clicks.",
     status: "upcoming",
+    showConnector: true,
   },
 };
 
@@ -63,7 +55,7 @@ export const PropertyValuationTimeline: Story = {
           step={2}
           title="Step 2: Place Your Order"
           description="Complete your order securely through our online checkout in just a few clicks."
-          status="current"
+          status="completed"
         />
         <ProgressItem
           step={3}
@@ -71,35 +63,114 @@ export const PropertyValuationTimeline: Story = {
           description="After order confirmation, enter your property information location, type, and key details for accurate valuation."
           status="upcoming"
         />
+        <ProgressItem
+          step={4}
+          title="Step 4: Get Your Report"
+          description="Receive your property valuation report."
+          status="upcoming"
+        />
       </ProgressTimeline>
     </div>
   ),
 };
 
-export const AllStatusTypes: Story = {
+export const AllCompleted: Story = {
   render: () => (
-    <div className="max-w-md space-y-6">
-      <ProgressItem
-        step={1}
-        title="Completed Step"
-        description="This step has been successfully completed."
-        status="completed"
-        showConnector={true}
-      />
-      <ProgressItem
-        step={2}
-        title="Current Step"
-        description="This is the step you're currently working on."
-        status="current"
-        showConnector={true}
-      />
-      <ProgressItem
-        step={3}
-        title="Upcoming Step"
-        description="This step will be available next."
-        status="upcoming"
-        showConnector={false}
-      />
+    <div className="max-w-2xl">
+      <ProgressTimeline>
+        <ProgressItem
+          step={1}
+          title="Step 1: Choose Your Service"
+          description="Select Property Valuation from our services to get started."
+          status="completed"
+        />
+        <ProgressItem
+          step={2}
+          title="Step 2: Place Your Order"
+          description="Complete your order securely through our online checkout in just a few clicks."
+          status="completed"
+        />
+        <ProgressItem
+          step={3}
+          title="Step 3: Submit Property Details"
+          description="After order confirmation, enter your property information location, type, and key details for accurate valuation."
+          status="completed"
+        />
+        <ProgressItem
+          step={4}
+          title="Step 4: Get Your Report"
+          description="Receive your property valuation report."
+          status="completed"
+        />
+      </ProgressTimeline>
+    </div>
+  ),
+};
+
+export const AllUpcoming: Story = {
+  render: () => (
+    <div className="max-w-2xl">
+      <ProgressTimeline>
+        <ProgressItem
+          step={1}
+          title="Step 1: Choose Your Service"
+          description="Select Property Valuation from our services to get started."
+          status="upcoming"
+        />
+        <ProgressItem
+          step={2}
+          title="Step 2: Place Your Order"
+          description="Complete your order securely through our online checkout in just a few clicks."
+          status="upcoming"
+        />
+        <ProgressItem
+          step={3}
+          title="Step 3: Submit Property Details"
+          description="After order confirmation, enter your property information location, type, and key details for accurate valuation."
+          status="upcoming"
+        />
+        <ProgressItem
+          step={4}
+          title="Step 4: Get Your Report"
+          description="Receive your property valuation report."
+          status="upcoming"
+        />
+      </ProgressTimeline>
+    </div>
+  ),
+};
+
+export const WithCustomGradient: Story = {
+  render: () => (
+    <div className="max-w-2xl">
+      <ProgressTimeline>
+        <ProgressItem
+          step={1}
+          title="Step 1: Choose Your Service"
+          description="Select Property Valuation from our services to get started."
+          status="completed"
+          className="[&_.bg-gradient-to-br]:from-primary-300 [&_.bg-gradient-to-br]:to-primary-500 [&_.from-gradient-start]:from-primary-300 [&_.to-gradient-end]:to-primary-500"
+        />
+        <ProgressItem
+          step={2}
+          title="Step 2: Place Your Order"
+          description="Complete your order securely through our online checkout in just a few clicks."
+          status="completed"
+          className="[&_.bg-gradient-to-br]:from-gradientAlt-start [&_.bg-gradient-to-br]:to-gradientAlt-end [&_.from-gradient-start]:from-gradientAlt-start [&_.to-gradient-end]:to-gradientAlt-end"
+        />
+        <ProgressItem
+          step={3}
+          title="Step 3: Submit Property Details"
+          description="After order confirmation, enter your property information location, type, and key details for accurate valuation."
+          status="upcoming"
+        />
+        <ProgressItem
+          step={4}
+          title="Step 4: Get Your Report"
+          description="Receive your property valuation report."
+          status="upcoming"
+        />
+      </ProgressTimeline>
     </div>
   ),
 };
@@ -127,7 +198,7 @@ export const InDashboardContext: Story = {
           step={2}
           title="Step 2: Place Your Order"
           description="Complete your order securely through our online checkout in just a few clicks."
-          status="current"
+          status="completed"
         />
         <ProgressItem
           step={3}
@@ -135,18 +206,24 @@ export const InDashboardContext: Story = {
           description="After order confirmation, enter your property information location, type, and key details for accurate valuation."
           status="upcoming"
         />
+        <ProgressItem
+          step={4}
+          title="Step 4: Get Your Report"
+          description="Receive your comprehensive property valuation report within 24-48 hours."
+          status="upcoming"
+        />
       </ProgressTimeline>
 
-      <div className="mt-10 p-6 bg-primary/5 rounded-lg border border-primary/10">
+      <div className="mt-10 p-6 bg-gradient-to-r from-gradient-start/10 to-gradient-end/10 rounded-lg border border-gradient-start/20">
         <div className="flex items-start gap-3">
-          <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+          <div className="w-3 h-3 bg-gradient-to-br from-gradient-start to-gradient-end rounded-full mt-1 flex-shrink-0"></div>
           <div>
             <h4 className="font-semibold text-gray-900">
-              Current Status: Step 2
+              Progress Status: 2/4 Steps Completed
             </h4>
             <p className="text-sm text-gray-600 mt-1">
-              You're currently placing your order. Once completed, you'll be
-              able to submit your property details.
+              Great progress! You've completed the first two steps. Next, submit
+              your property details.
             </p>
           </div>
         </div>
@@ -169,7 +246,7 @@ export const CompactVersion: Story = {
           step={2}
           title="Place Order"
           description="Secure checkout"
-          status="current"
+          status="completed"
         />
         <ProgressItem
           step={3}
@@ -181,6 +258,67 @@ export const CompactVersion: Story = {
           step={4}
           title="Get Report"
           description="Receive valuation report"
+          status="upcoming"
+        />
+      </ProgressTimeline>
+    </div>
+  ),
+};
+
+export const WithoutConnector: Story = {
+  render: () => (
+    <div className="max-w-md space-y-6">
+      <ProgressItem
+        step={1}
+        title="Step 1: Choose Your Service"
+        description="Select Property Valuation from our services to get started."
+        status="completed"
+        showConnector={false}
+      />
+      <ProgressItem
+        step={2}
+        title="Step 2: Place Your Order"
+        description="Complete your order securely through our online checkout in just a few clicks."
+        status="completed"
+        showConnector={false}
+      />
+    </div>
+  ),
+};
+
+export const MixedCompletion: Story = {
+  render: () => (
+    <div className="max-w-2xl">
+      <div className="mb-6">
+        <h3 className="text-lg font-semibold text-gray-900 mb-2">
+          Order #12345 Progress
+        </h3>
+        <p className="text-sm text-gray-600">Track your current order status</p>
+      </div>
+
+      <ProgressTimeline>
+        <ProgressItem
+          step={1}
+          title="Order Placed"
+          description="Your order has been successfully placed"
+          status="completed"
+        />
+        <ProgressItem
+          step={2}
+          title="Payment Confirmed"
+          description="Payment has been processed and confirmed"
+          status="completed"
+        />
+        <ProgressItem
+          step={3}
+          title="Processing"
+          description="Your property valuation is being prepared"
+          status="upcoming"
+        />
+        <ProgressItem
+          step={4}
+          title="Report Ready"
+          description="Valuation report will be delivered"
           status="upcoming"
         />
       </ProgressTimeline>
